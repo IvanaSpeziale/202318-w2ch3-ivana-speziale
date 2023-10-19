@@ -37,3 +37,28 @@ export const arrayUnshift = (arrayToIterate, item) => {
 
   return arrayLength(temporaryArray);
 };
+
+// Array.pop()
+
+export const arrayPop = (arrayToIterate) => {
+  const lastElementPosition = arrayLength(arrayToIterate) - 1;
+  const lastElement = arrayToIterate[lastElementPosition];
+  console.log(lastElement);
+  return lastElement;
+};
+
+// Array.shift()
+
+export const arrayShift = (array) => {
+  if (array.length === 0) {
+    return undefined;
+  }
+
+  const shiftElement = array[0];
+  for (let i = 0; i < array.length - 1; i++) {
+    array[i] = array[i + 1];
+  }
+  const elementToShift = array.arrayPop();
+
+  return shiftElement;
+};

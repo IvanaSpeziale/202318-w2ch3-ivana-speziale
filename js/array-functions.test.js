@@ -1,4 +1,10 @@
-import { arrayLength, arrayPush, arrayUnshift } from './array-functions';
+import {
+  arrayLength,
+  arrayPush,
+  arrayUnshift,
+  arrayPop,
+  arrayShift,
+} from './array-functions';
 
 describe('Given the length function', () => {
   describe('When the argument is [1, 2, 3]', () => {
@@ -103,5 +109,21 @@ describe('Given the unshift function', () => {
 
       expect(result).toBe(expected);
     });
+  });
+});
+
+describe('When the argument is [1, 2, 3, 4]', () => {
+  test('The result should be the modified array ,without the first item', () => {
+    const n = [1, 2, 3, 4];
+    const shiftElement = arrayShift(n);
+    expect(shiftElement).toBe(1);
+    expect(n).toBe([2, 3, 4]);
+  });
+
+  test('should return an empty array', () => {
+    const n = [];
+    const shiftElement = arrayShift(n);
+    expect(shiftElement).toBe(undefined);
+    expect(n).toStrictEqual([]);
   });
 });
